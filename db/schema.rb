@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20170128221921) do
 
-  create_table "locations", force: :cascade do |t|
+  create_table "positions", force: :cascade do |t|
     t.integer  "travel_id"
     t.string   "address"
     t.integer  "timestamp"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20170128221921) do
   end
 
   create_table "rentals", force: :cascade do |t|
+    t.integer  "make",       null: false
+    t.integer  "model",      null: false
     t.integer  "vehicle",    null: false
     t.integer  "engine",     null: false
     t.integer  "energy",     null: false
@@ -35,7 +37,6 @@ ActiveRecord::Schema.define(version: 20170128221921) do
     t.integer  "rental_id"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.text     "data"
     t.float    "distance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
