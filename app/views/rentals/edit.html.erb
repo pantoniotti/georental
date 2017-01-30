@@ -1,0 +1,12 @@
+<div class="row form-inline">
+  <div class='col-xs-8'>
+    <h1>Edit Rental</h1>
+  </div>
+  <div class='col-xs-4 action-buttons'>
+    <%= link_to 'Back to Rentals', rentals_path, class: 'btn btn-default pull-right' %>
+  </div>
+</div>
+
+<%= render partial: 'form', locals: { rental: @rental } %>
+<hr>
+<%= render partial: 'travels', locals: { rental: @rental} %>

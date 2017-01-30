@@ -1,0 +1,40 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header {
+  padding: 1px 10px 10px 10px;
+
+  a,
+  a:active,
+  a:focus,
+  a:hover,
+  a:visited {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.container {
+  padding-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.action-buttons {
+  padding-top: 30px;
+  a {
+    position: absolute;
+    right: 20px;
+  }
+}
+
+.action-buttons.mid {
+  padding-top: 20px;
+}
+
+td.actions {
+  text-align: right;
+}

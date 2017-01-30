@@ -1,0 +1,25 @@
+<div class='upload-container pull-left'>
+  <div class='upload-form'>
+    <%= form_for :file, url: url, method: method, html: { :multipart => true, :id => 'file_upload' } do |f| -%>
+      <div id='file-upload' class='file-upload form-inline'>
+        <div class="form-group">
+          <input type='text' class='file-name form-control' placeholder="Choose a file ..." accept=".csv">
+        </div>
+        <label class='btn btn-default btn-load-file'>
+          <input type='file' class='file-Loader' id='file-Loader' name='file'>
+          <span>Load</span>
+        </label>
+      </div>
+      <div class='action-buttons pull-right'>
+        <div class="loader">
+          <span class='loader-gif'>
+            <img src='<%= asset_path("gears.gif") %>' alt=''>
+          </span>
+        </div>
+        <span class='btn btn-default clear'>Clear</span>&nbsp;
+        <%= f.submit 'Process', :class => 'btn btn-primary btn-submit' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

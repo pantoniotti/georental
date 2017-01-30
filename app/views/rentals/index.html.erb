@@ -1,0 +1,40 @@
+<div class="row form-inline">
+  <div class="col-xs-8"><h1>Rentals List</h1></div>
+  <div class="col-xs-4 action-buttons">
+    <%= link_to 'Add Rental', new_rental_path,
+                class: 'btn btn-primary pull-right"' %>
+  </div>
+</div>
+<div>
+
+</div>
+<p>
+  To add a new travel to a rental click on "Edit" in the table last column
+</p>
+<table class="table">
+  <thead>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Vehicle</th>
+    <th>Engine</th>
+    <th>Energy</th>
+    <th>Travels</th>
+    <th></th>
+  </thead>
+  <% @rentals.each do |rental| %>
+    <tr>
+      <td><%= rental.make %></td>
+      <td><%= rental.model %></td>
+      <td><%= rental.vehicle %></td>
+      <td><%= rental.engine %></td>
+      <td><%= rental.energy %></td>
+      <td><%= rental.travels.count %></td>
+      <td class="actions">
+        <%= link_to 'Edit', edit_rental_path(rental) %>
+        |
+        <%= link_to 'Delete', rental, :method => 'delete',
+                    remote: true, confirm: 'Are you sure?'%>
+      </td>
+    </tr>
+  <% end %>
+</table>

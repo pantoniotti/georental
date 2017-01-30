@@ -1,0 +1,18 @@
+<div class="row form-inline">
+  <div class='col-xs-8'>
+    <h1>New Travel</h1>
+  </div>
+  <div class='col-xs-4 action-buttons '>
+    <%= link_to 'Back to Rental', edit_rental_path(@travel.rental),
+                class: 'btn btn-default pull-right' %>
+  </div>
+</div>
+
+<div class='col-xs-12'>
+  <%= render :partial => 'upload',
+             locals: {
+                 url: rental_travels_path,
+                 method: :post
+             }
+  %>
+</div>

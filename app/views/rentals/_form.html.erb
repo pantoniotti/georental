@@ -1,0 +1,32 @@
+<div class='row'>
+  <div class='col-xs-12'>
+    <%= simple_form_for rental do |f| %>
+      <%= f.input :make, as: :select,
+                  collection: Rental.makes,
+                  include_blank: false,
+                  selected: rental[:make]
+      %>
+      <%= f.input :model, as: :select,
+                  collection: Rental.models,
+                  include_blank: false,
+                  selected: rental[:model]
+      %>
+      <%= f.input :vehicle, as: :select,
+                  collection: Rental.vehicles,
+                  include_blank: false,
+                  selected: rental[:vehicle]
+      %>
+      <%= f.input :engine, as: :select,
+                  collection: Rental.engines,
+                  include_blank: false,
+                  selected: rental[:engine]
+      %>
+      <%= f.input :energy, as: :select,
+                  collection: Rental.energies,
+                  include_blank: false,
+                  selected: rental[:energy]
+      %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

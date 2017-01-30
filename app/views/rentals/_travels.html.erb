@@ -1,0 +1,28 @@
+<div class="row form-inline">
+  <div class="col-xs-8"><h3>Travels</h3></div>
+  <div class="col-xs-4 action-buttons mid">
+    <%= link_to 'Add Travel', new_rental_travel_path(rental),
+                class: 'btn btn-primary pull-right"' %>
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <th>Start</th>
+    <th>End</th>
+    <th>Distance</th>
+    <th></th>
+  </thead>
+  <% rental.travels.each do |travel| %>
+    <tr>
+      <td><%= travel.start_time %></td>
+      <td><%= travel.end_time %></td>
+      <td><%= '%.2f' % travel.distance %> miles</td>
+      <td class="actions">
+        <%= link_to 'Edit', edit_rental_travel_path(rental, travel) %>
+        |
+        <%= link_to 'Delete', [rental, travel], :method => 'delete',
+                    remote: true, confirm: 'Are you sure?' %>
+      </td>
+    </tr>
+  <% end %>
+</table>

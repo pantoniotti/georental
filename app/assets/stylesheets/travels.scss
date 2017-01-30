@@ -1,0 +1,52 @@
+// Place all the styles related to the travels controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.upload-container {
+
+  border: 1px solid #DEDEDE;
+  width: 100%;
+  padding: 10px;
+  margin-top: 40px;
+
+  #file_upload {
+    position: relative;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+
+  label.btn-load-file {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .file-upload {
+    margin: 10px 0;
+  }
+
+  .file-name {
+    width: 100%;
+  }
+
+  input[type="file"] {
+    position: fixed;
+    top: -1000px;
+  }
+
+  .loader {
+    display: none;
+    overflow: hidden;
+
+    .loader-gif {
+
+      img {
+        position: absolute;
+        left: 10px;
+        top: 50px;
+      }
+    }
+  }
+}

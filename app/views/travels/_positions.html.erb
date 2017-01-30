@@ -1,0 +1,17 @@
+<div class="row form-inline">
+  <div class="col-xs-12"><h3>Positions</h3></div>
+</div>
+<table class="table">
+  <thead>
+    <th>Timestamp</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+  </thead>
+  <% travel.positions.each do |position| %>
+    <tr>
+      <td><%= position.timestamp%></td>
+      <td><%= position.latitude %></td>
+      <td><%= position.longitude %></td>
+    </tr>
+  <% end %>
+</table>
