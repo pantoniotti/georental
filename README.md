@@ -41,11 +41,16 @@ In the next page you can load the travel data from a csv file.
 
 Click on "Load", select your csv file, then click on "Process".
 
-When processing is done, you should be redirected to the travels page where your new travel will apoear with the following info:
+When processing is done, you should be redirected to the travel edit page 
+where your new travel will appear with the following info:
 
 **Start time (as date and time).
-
 **End time (as date and time).
-
 **Distance covered (in miles).
+
+And in tabs
+
+** A map showing the path (in red) of all the rental movements
+** A table of all the recorded positions
+
 
