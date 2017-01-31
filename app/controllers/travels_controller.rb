@@ -19,7 +19,7 @@ class TravelsController < ApplicationController
       @travel = Travel.create(rental_id: params[:rental_id])
       @travel.file = @file.tempfile
       @travel.process
-      redirect_to rental_travels_path
+      redirect_to edit_rental_travel_path(@travel.rental, @travel)
     end
   end
 

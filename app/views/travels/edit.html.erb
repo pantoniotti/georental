@@ -1,19 +1,49 @@
 <div class="row form-inline">
-  <div class='col-l-6 col-md-6 col-xs-6'>
+  <div class='col-md-6 col-xs-6'>
     <h1>Edit Travel</h1>
   </div>
-  <div class='col-l-6 col-md-6 col-xs-6 action-buttons'>
+  <div class='col-md-6 col-xs-6 action-buttons'>
     <%= link_to 'Back to Travels', rental_travels_path(@travel.rental),
                 class: 'btn btn-default pull-right' %>
   </div>
 </div>
-
-<div class='col-xs-12'>
+<div class='col-sm-12 col-xs-12'>
   <%= render :partial => 'upload',
              locals: {
                  url: rental_travel_path(@travel.rental, @travel),
                  method: :put
              }
   %>
-  <%= render :partial => 'positions', locals: { travel: @travel} %>
 </div>
+<hr>
+<div class='row col-sm-12 rental-info'>
+  <div class="col-sm-4">
+    <span><strong>Start Rental: </strong></span><br>
+    <%= @travel.start_time %>
+  </div>
+  <div class="col-sm-4">
+    <span><strong>End Rental: </strong></span><br>
+    <%= @travel.end_time %>
+  </div>
+  <div class="col-sm-4">
+    <span><strong>Total Distance: </strong></span><br>
+    <%= '%.2f' % @travel.distance %> miles
+  </div>
+</div>
+<hr>
+<div class='col-xs-12'>
+  <ul class="nav nav-tabs">
+    <li><a data-toggle="tab" href="#positions">Positions</a></li>
+    <li class="active"><a data-toggle="tab" href="#positions-map" id="positions-tab">Map</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="positions" class="tab-pane fade">
+      <%= render :partial => 'positions', locals: { travel: @travel} %>
+    </div>
+    <div id="positions-map" class="tab-pane fade in active">
+      <%= render :partial => 'polylines' %>
+    </div>
+  </div>
+</div>
+
+

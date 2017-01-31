@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Rental.create(make: 0, model: 4, vehicle: 0, engine: 0, energy: 0)
-Rental.create(make: 0, model: 0, vehicle: 1, engine: 0, energy: 1)
-Rental.create(make: 0, model: 4, vehicle: 2, engine: 0, energy: 2)
-Rental.create(make: 0, model: 0, vehicle: 3, engine: 1, energy: 0)
-Rental.create(make: 0, model: 0, vehicle: 4, engine: 1, energy: 2)
+Rental.create(make: 0, model: 0, vehicle: 5, engine: 1, energy: 1)
+Rental.create(make: 0, model: 1, vehicle: 1, engine: 1, energy: 1)
+Rental.create(make: 7, model: 6, vehicle: 5, engine: 0, energy: 1)
+Rental.create(make: 2, model: 2, vehicle: 2, engine: 1, energy: 2)
+Rental.create(make: 8, model: 4, vehicle: 6, engine: 1, energy: 1)

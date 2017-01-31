@@ -1,0 +1,67 @@
+<style>
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+</style>
+<div class="row">
+  <div class="col-sm-12"><h3>Travel Path</h3></div>
+</div>
+<div class="row map-container">
+  <div id="map"></div>
+</div>
+<script>
+
+  function initMap() {
+    var routeCoordinates = getCoordinates();
+    var startLat = routeCoordinates[0]['lat'];
+    var startLng = routeCoordinates[0]['lng'];
+    var center = {lat: startLat, lng: startLng};
+
+    var mapOptions = {
+      zoom: 6,
+      center: {lat: startLat, lng: startLng},
+      mapTypeId: 'terrain'
+    };
+
+    var mapElt = document.getElementById('map');
+    var map = new google.maps.Map(mapElt, mapOptions);
+
+    var routePath = new google.maps.Polyline({
+      path: routeCoordinates,
+      geodesic: true,
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 2
+    });
+
+    routePath.setMap(map);
+    map.setCenter(center);
+
+    var tab = document.getElementById('positions-tab');
+
+    tab.addEventListener('click', function() {
+      setTimeout(function(){
+        google.maps.event.trigger(map, "resize")
+        map.setCenter(center);
+      }, 300);
+    }, false);
+
+  }
+
+  function getCoordinates(){
+    var table = document.getElementById('positions-table');
+    var coordinates = [];
+    for (var i = 1, row; row = table.rows[i]; i++) {
+      var col = row.cells;
+      var values = {lat: parseFloat(col[1].innerText), lng: parseFloat(col[2].innerText)};
+      coordinates.push(values);
+    }
+    return coordinates;
+  }
+
+</script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTB-sG2axQowSOSKZoDV08icVxXOiRohg&callback=initMap">
+</script>
