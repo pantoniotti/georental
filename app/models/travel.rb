@@ -14,6 +14,7 @@ class Travel < ActiveRecord::Base
 
   def process
     data = load_positions_data
+    data = filter_position(data)
     create_positions(data)
     compute_positions_data
   end
@@ -39,7 +40,6 @@ class Travel < ActiveRecord::Base
   # distance_between method
   def compute_positions_data
     previous_position = nil
-    # positions = Position.where(travel_id: self.id).order(:timestamp)
     positions = self.positions.order(:timestamp)
     distance = 0
     positions.each do |position|
@@ -68,7 +68,6 @@ class Travel < ActiveRecord::Base
               }
     end
     data
-    filter_position(data)
   end
 
   # Filter out any subsequent duplicate lat and long
