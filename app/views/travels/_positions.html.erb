@@ -3,13 +3,13 @@
 </div>
 <table class="table" id="positions-table">
   <thead>
-    <th>Timestamp</th>
+    <th>Date & Time</th>
     <th>Latitude</th>
     <th>Longitude</th>
   </thead>
   <% travel.positions.each do |position| %>
     <tr>
-      <td><%= position.timestamp%></td>
+      <td><%= Time.at(position.timestamp) %></td>
       <td><%= position.latitude %></td>
       <td><%= position.longitude %></td>
     </tr>

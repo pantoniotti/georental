@@ -1,13 +1,15 @@
 <div class="row form-inline">
-  <div class="col-xs-9"><h1>Travels List</h1></div>
-  <div class="col-xs-3 action-buttons pull-right">
-    <div class ="col-md-5 col-sm-5">
-      <%= link_to 'Add Travel', new_rental_travel_path(@rental),
-                  class: 'btn btn-primary pull-left' %>
-    </div>
-    <div class ="col-md-7 col-sm-7">
-      <%= link_to 'Back to Rental', edit_rental_path(@rental),
-                  class: 'btn btn-default pull-right' %>
+  <div class="col-xs-6"><h1>Travels List</h1></div>
+  <div class="col-xs-6 action-buttons">
+    <div class="btn-toolbar pull-right" role="toolbar">
+      <div class ="btn-group">
+        <%= link_to 'Add Travel', new_rental_travel_path(@rental),
+                    class: 'btn btn-primary pull-left' %>
+      </div>
+      <div class="btn-group">
+        <%= link_to 'Back to Rental', edit_rental_path(@rental),
+                    class: 'btn btn-default pull-right' %>
+      </div>
     </div>
   </div>
 </div>
@@ -23,12 +25,16 @@
     <tr>
       <td><%= travel.start_time %></td>
       <td><%= travel.end_time %></td>
-      <td><%= '%.2f' % travel.distance %> miles</td>
+      <td><%= '%.2f' % travel.distance %> km</td>
       <td class="actions">
         <%= link_to 'Edit', edit_rental_travel_path(travel.rental, travel) %>
         |
-        <%= link_to 'Delete', [travel.rental, travel], :method => 'delete',
-                    remote: true, confirm: 'Are you sure?' %>
+        <%= link_to 'Delete', [travel.rental, travel],
+                    :method => 'delete',
+                    remote: true,
+                    id: 'ajax_link',
+                    data: { disable_with: 'Wait...' },
+                    data: { confirm: 'Are you sure?' } %>
       </td>
     </tr>
   <% end %>

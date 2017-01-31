@@ -46,9 +46,10 @@ class Travel < ActiveRecord::Base
       if previous_position.nil?
         self.start_time = Time.at(position.timestamp)
       else
+        options = { units: :km }
         distance += Geocoder::Calculations.distance_between(
             [previous_position[:latitude], previous_position[:longitude]],
-            [position[:latitude], position[:longitude]])
+            [position[:latitude], position[:longitude]], options)
       end
       self.end_time = Time.at(position.timestamp)
       previous_position = position

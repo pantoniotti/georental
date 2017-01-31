@@ -39,7 +39,7 @@ class TravelsController < ApplicationController
       @travel.positions.delete_all
       @travel.file = @file.tempfile
       @travel.process
-      redirect_to rental_travels_path
+      redirect_to edit_rental_travel_path(@travel.rental, @travel)
     end
   end
 

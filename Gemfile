@@ -47,7 +47,8 @@ end
 
 group :test do
   gem 'rspec-rails'
-  gem 'coveralls'
+  gem 'simplecov', :require => false
+  gem 'coveralls', require: false
 end
 
 gem 'simple_form'

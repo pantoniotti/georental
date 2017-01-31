@@ -31,13 +31,9 @@ rspec
 #### How it works
 
 The application comes loaded with a few rental cars (brands, models, vehicle categories, engine type, and energy types.
-To create a new travel for a rental, click on "Edit" in the rental line last column.
+To create a new travel for a rental, click on "Add Travel" in the rental line last column.
  
-In the Edit page, you can edit the rental car information and view a table
-containing all the travels associated with it if any (none by default)
-To create a new one, click on "Add Travel".
-
-In the next page you can load the travel data from a csv file.
+In the "New Travel" page you can load the travel data from a csv file.
 
 Click on "Load", select your csv file, then click on "Process".
 
@@ -46,10 +42,10 @@ where your new travel will appear with the following info:
 
 * Start time (as date and time).
 * End time (as date and time).
-* Distance covered (in miles).
+* Distance covered (in km).
 
 And in tabs
 
-* A map showing the path (in red) of all the rental movements
+* A map showing the path (in red) of all the rental movements with start and end markers
 * A table of all the recorded positions
 

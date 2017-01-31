@@ -28,12 +28,18 @@
       <td><%= rental.vehicle %></td>
       <td><%= rental.engine %></td>
       <td><%= rental.energy %></td>
-      <td><%= rental.travels.count %></td>
+      <td><%= link_to rental.travels.count, rental_travels_path(rental) %></td>
       <td class="actions">
         <%= link_to 'Edit', edit_rental_path(rental) %>
         |
-        <%= link_to 'Delete', rental, :method => 'delete',
-                    remote: true, confirm: 'Are you sure?'%>
+        <%= link_to 'Add Travel', new_rental_travel_path(rental)%>
+        <!--|-->
+        <% link_to 'Delete', rental,
+                    :method => 'delete',
+                    remote: true,
+                    id: 'ajax_link',
+                    data: { disable_with: 'Wait...' },
+                    data: { confirm: 'Are you sure?' } %>
       </td>
     </tr>
   <% end %>

@@ -17,6 +17,8 @@
     var routeCoordinates = getCoordinates();
     var startLat = routeCoordinates[0]['lat'];
     var startLng = routeCoordinates[0]['lng'];
+    var endLat = routeCoordinates[routeCoordinates.length - 1]['lat'];
+    var endLng = routeCoordinates[routeCoordinates.length - 1]['lng'];
     var center = {lat: startLat, lng: startLng};
 
     var mapOptions = {
@@ -48,6 +50,18 @@
       }, 300);
     }, false);
 
+    // Set marker at start and end
+    var starMarker = new google.maps.Marker({
+      position: { lat:startLat, lng:startLng },
+      map: map,
+      title: 'Start'
+    });
+
+    var endMarker = new google.maps.Marker({
+      position: { lat:endLat, lng:endLng },
+      map: map,
+      title: 'End'
+    });
   }
 
   function getCoordinates(){

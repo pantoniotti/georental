@@ -16,12 +16,16 @@
     <tr>
       <td><%= travel.start_time %></td>
       <td><%= travel.end_time %></td>
-      <td><%= '%.2f' % travel.distance %> miles</td>
+      <td><%= '%.2f' % travel.distance %> <km></km></td>
       <td class="actions">
         <%= link_to 'Edit', edit_rental_travel_path(rental, travel) %>
         |
-        <%= link_to 'Delete', [rental, travel], :method => 'delete',
-                    remote: true, confirm: 'Are you sure?' %>
+        <%= link_to 'Delete', [rental, travel],
+                    :method => 'delete',
+                    remote: true,
+                    id: 'ajax_link',
+                    data: { disable_with: 'Wait...' },
+                    data: { confirm: 'Are you sure?' } %>
       </td>
     </tr>
   <% end %>
