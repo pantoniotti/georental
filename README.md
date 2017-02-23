@@ -34,6 +34,7 @@ The application comes loaded with a few rental cars (brands, models, vehicle cat
 To create a new travel for a rental, click on "Add Travel" in the rental line last column.
  
 In the "New Travel" page you can load the travel data from a csv file.
+You can use the files in the data folder.
 
 Click on "Load", select your csv file, then click on "Process".
 
